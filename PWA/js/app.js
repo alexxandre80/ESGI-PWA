@@ -3,7 +3,7 @@
 (async () => {
  const app = document.querySelector('#app main');
 
-  const result = await fetch('/data/spacex.json');
+  const result = await fetch('data/spacex.json');
   const data = await result.json();
   
   
@@ -73,9 +73,12 @@ function initCard(card, data) {
   placeholder.style.cssText = `background-image: url(${data.placeholder})`;
 
   const image = card.querySelector('img');
+  const title = card.querySelector('h1');
+  const description = card.querySelector('p');
+
   image.dataset.src = data.image;
   image.alt = data.content.title;
-
-  // ...
+  title.textContent = data.content.title;
+  description.textContent = data.content.description;
 
 }
